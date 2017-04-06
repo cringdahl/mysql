@@ -21,6 +21,39 @@ if defined?(ChefSpec)
     ChefSpec::Matchers::ResourceMatcher.new(:mysql_server_installation_package, :remove, resource_name)
   end
 
+  # mysql database
+  #
+  ChefSpec.define_matcher :mysql_database
+
+  def create_mysql_database(resource_name)
+    ChefSpec::Matchers::ResourceMatcher.new(:mysql_database, :create, resource_name)
+  end
+
+  def drop_mysql_database(resource_name)
+    ChefSpec::Matchers::ResourceMatcher.new(:mysql_database, :drop, resource_name)
+  end
+
+  def query_mysql_database(resource_name)
+    ChefSpec::Matchers::ResourceMatcher.new(:mysql_database, :query, resource_name)
+  end
+
+  # mysql database user
+  #
+  ChefSpec.define_matcher :mysql_database_user
+
+  def create_mysql_database_user(resource_name)
+    ChefSpec::Matchers::ResourceMatcher.new(:mysql_database_user, :create, resource_name)
+  end
+
+  def drop_mysql_database_user(resource_name)
+    ChefSpec::Matchers::ResourceMatcher.new(:mysql_database_user, :drop, resource_name)
+  end
+
+  def grant_mysql_database_user(resource_name)
+    ChefSpec::Matchers::ResourceMatcher.new(:mysql_database_user, :grant, resource_name)
+  end
+
+
   #####
   # old
   #####
